@@ -7,10 +7,11 @@ public class Type {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private long id;
 
     @Column
-    private String Type;
+    private String typename;
     @Column
     private String strongAgainst;
     @Column
@@ -24,18 +25,20 @@ public class Type {
     public Type() {
     }
 
-    public Type(String type) {
-        Type = type;
+    public Type(String typename, String strongAgainst, String weakAgainst, String resistantTo, String weakTo) {
+        this.typename = typename;
+        this.strongAgainst = strongAgainst;
+        this.weakAgainst = weakAgainst;
+        this.resistantTo = resistantTo;
+        this.weakTo = weakTo;
     }
 
-
-
-    public String getType() {
-        return Type;
+    public String getTypename() {
+        return typename;
     }
 
-    public void setType(String type) {
-        Type = type;
+    public void setTypename(String typename) {
+        this.typename = typename;
     }
 
     public String getStrongAgainst() {
@@ -68,5 +71,13 @@ public class Type {
 
     public void setWeakTo(String weakTo) {
         this.weakTo = weakTo;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
